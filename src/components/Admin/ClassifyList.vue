@@ -22,6 +22,7 @@ export default {
             Classify_list: [],
             Classify_show: false,
             Classify_hint: "请先添加分组~~~",
+            Classify_add_show:false,
         }
     },
     methods: {
@@ -47,11 +48,12 @@ export default {
                 if (response.data.code == 4000) {
                     this.GetClassify();//删除成功，刷新分类列表
                 } else if (response.data.code == 4200) {//数据库操作失败
+                    this.GetClassify();//删除失败，刷新
                     console.log('数据库操作失败!!!');
                 }
-            }), error => {
-
-            }
+            }, error => {
+                this.GetClassify();//请求失败，刷新列表
+            })
         }
     },
     created: function () {
@@ -69,13 +71,13 @@ export default {
     border-bottom-left-radius: 2vw;
 }
 
-.classify_tr {
+.classify_tr{
     display: flex;
     height: 3vw;
     border-top: 1px solid rgb(162, 162, 162);
 }
 
-.classify_tr>* {
+.classify_tr>*{
     flex: 1;
 }
 
@@ -103,9 +105,7 @@ export default {
     border-radius: 0.2vw;
     border: 1px solid rgb(188, 188, 188);
     height: 2vw;
-    /* padding: auto 0; */
     margin: auto 0;
-    /* background-color: bisque; */
 }
 
 .classify_null {
