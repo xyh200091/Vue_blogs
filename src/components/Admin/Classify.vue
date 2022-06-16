@@ -32,12 +32,14 @@
             </div>
         </div>
 
-        <div class="classify_add" v-show="this.add_show" hidefocus="true" tabindex="0" @blur="CloseAdd();">
+        <div class="classify_add" v-show="this.add_show" hidefocus="true" tabindex="0">
             <span class="add_title">{{ this.add_title }}</span>
             <input type="text" class="add_name" v-bind:placeholder="add_intro" id="add_name" @blur="NameBlur()">
             <input type="color" class="add_color" v-show="this.label_color_show" id="add_color">
             <span class="error_text" v-show="this.error_text_show">{{ this.error_text }}</span>
             <button @click="AddEvent()">添加</button>
+            <div @click="CloseAdd()" class="Closebtn">
+            </div>
         </div>
     </div>
 </template>
@@ -51,12 +53,12 @@ export default {
         return {
             add_show: false,
             label_color_show: false,
-            error_text_show:false,
+            error_text_show: false,
 
             add_title: "添加分类",
             add_intro: "输入分类名称",
 
-            error_text:'',
+            error_text: '',
         }
     },
     components: {
@@ -80,7 +82,7 @@ export default {
             var Data = {};
             var add_name = document.getElementById('add_name');
             Data['add_name'] = add_name.value;
-            if (add_name.value.length>0) { 
+            if (add_name.value.length > 0) {
                 if (this.label_color_show) {
                     Data['add_color'] = document.getElementById('add_color').value;
                 }
@@ -97,7 +99,7 @@ export default {
                             this.error_text_show = true;
                         } else if (response.data.code == 4201) {
                             this.error_text = response.data.info;
-                        this.error_text_show = true;
+                            this.error_text_show = true;
                         }
                     }, error => {
                         this.error_text = "网络错误";
@@ -114,7 +116,7 @@ export default {
                             this.error_text_show = true;
                         } else if (response.data.code == 4201) {
                             this.error_text = response.data.info;
-                        this.error_text_show = true;
+                            this.error_text_show = true;
                         }
                     }, error => {
                         this.error_text = "网络错误";
@@ -128,7 +130,7 @@ export default {
         },
         NameBlur: function () {
             var add_name = document.getElementById('add_name');
-            if (add_name.value.length>0) {
+            if (add_name.value.length > 0) {
                 this.error_text_show = false;
             } else {
                 this.error_text = "请先输入名称";
@@ -138,7 +140,7 @@ export default {
         CloseAdd: function () {
             this.add_show = false;
             this.label_color_show = false;
-            this.error_text_show=false;
+            this.error_text_show = false;
         }
     },
 }
