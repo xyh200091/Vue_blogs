@@ -2,12 +2,10 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view />
-    <live2d
-      :style="style"
+    <live2d :style="style"
       :model="['bilibili-live/33', 'closet-default-v2&newyear-upper&cba-super-lower&tomo-high-hat']"
-      :direction="direction"
-      :size="size"
-    ></live2d>
+      :direction="direction" :size="size"></live2d>
+    <ttf></ttf>
   </div>
 </template>
 
@@ -17,15 +15,17 @@ import live2d from './index.vue'
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import ttf from './components/Effects/ttf_24/index.vue'
 Vue.prototype.$axios = axios;
-Vue.use(VueAxios,axios);
+Vue.use(VueAxios, axios);
 
 export default {
   name: 'App',
-  components:{
-    live2d
+  components: {
+    live2d,
+    ttf,
   },
-  data () {
+  data() {
     return {
       direction: 'left',
       style: "position: fixed; bottom: 0; left: 0; zIndex: 1",
@@ -69,6 +69,6 @@ li {
 ::-webkit-scrollbar-thumb {
   background-color: #6fd0ee;
   border-radius: 5px;
-  
+
 }
 </style>
