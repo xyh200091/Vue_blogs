@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <div class="canvas">
     <canvas id="canvas" />
     <!-- 换成自己的图片 -->
-    <img :style="canvasStyle" src="./ttf.jpg" />
+    <!-- <img :style="canvasStyle" src="./ttf.jpg" /> -->
   </div>
 </template>
 
@@ -39,5 +39,9 @@ export default {
 </script>
 
 <style scoped>
-
+.canvas {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
 </style>
