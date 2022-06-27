@@ -19,7 +19,7 @@
                 <input type="password" placeholder="输入密码" class="login_pwd">
                 <div class="code_box">
                     <input type="text" placeholder="验证码" class="login_code">
-                    <img src="" alt="" class="code_img">
+                    <img src="get/login/code/img" alt="" class="code_img">
                 </div>
                 <span class="event_code">错误提示</span>
                 <button class="login_btn">登录</button>

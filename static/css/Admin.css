@@ -10,6 +10,7 @@
         background-color: bisque;
         display: flex;
         flex-direction: column;
+        /* z-index: 2; */
     }
 
     /* 登录板 */
@@ -20,7 +21,7 @@
         height: 100%;
         background-color: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(2px);
-        z-index: 1;
+
     }
 
     .login_beg {
