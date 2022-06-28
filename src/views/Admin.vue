@@ -13,26 +13,18 @@
             <div></div>
         </div>
         <!-- 登录 -->
-        <div class="login">
-            <div class="login_beg">
-                <span class="login_title">登录</span>
-                <input type="password" placeholder="输入密码" class="login_pwd">
-                <div class="code_box">
-                    <input type="text" placeholder="验证码" class="login_code">
-                    <img src="get/login/code/img" alt="" class="code_img">
-                </div>
-                <span class="event_code">错误提示</span>
-                <button class="login_btn">登录</button>
-            </div>
-        </div>
+        <login></login>
     </div>
 </template>
 
 <script>
+import login from '@/components/Admin/Login.vue'
+
+
 export default {
     name: 'admin',
     components: {
-
+        login,
     },
     data: {
 
