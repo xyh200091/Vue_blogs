@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import VueCookies from 'vue-cookies'
 
 Vue.config.productionTip = false
 
@@ -25,3 +26,5 @@ const app = createApp(App)
 
 // 将 axios 挂载为 app 的全局自定义属性（ 如 $http ）
 app.config.globalProperties.$http = axios
+
+Vue.use(VueCookies)
