@@ -22,19 +22,21 @@
     <div v-show="toolShow" class="vue-live2d-tool">
       <span v-for="(tool, index) in tools" :key="index" :class="tool.className" v-html="tool.svg" @click="tool.click" />
     </div>
-    <div v-show="toggleShow" @click="openLive2dMain" :class="{
-      'vue-live2d-toggle_1': true,
-      'vue-live2d-toggle-on-left': direction === 'left',
-      'vue-live2d-toggle-on-right': direction === 'right',
-    }">
-      <span>看板娘</span>
-    </div>
-    <div v-show="toggleShow" @click="openLive2dMain" :class="{
-      'vue-live2d-toggle_2': true,
-      'vue-live2d-toggle-on-left': direction === 'left',
-      'vue-live2d-toggle-on-right': direction === 'right',
-    }">
-      <span>转后台</span>
+    <div class="Live2dMain">
+      <div v-show="toggleShow" @click="openLive2dMain" :class="{
+        'vue-live2d-toggle_1': true,
+        'vue-live2d-toggle-on-left': direction === 'left',
+        'vue-live2d-toggle-on-right': direction === 'right',
+      }">
+        <span>看板娘</span>
+      </div>
+      <div v-show="toggleShow" @click="openAdminPage" :class="{
+        'vue-live2d-toggle_2': true,
+        'vue-live2d-toggle-on-left': direction === 'left',
+        'vue-live2d-toggle-on-right': direction === 'right',
+      }">
+        <span>转后台</span>
+      </div>
     </div>
   </div>
 </template>
@@ -76,6 +78,10 @@ export default {
     },
     homePage: {
       default: '/#/',
+      type: String
+    },
+    adminPage: {
+      default: '/#/owner/admin.html',
       type: String
     },
     tips: {
@@ -240,6 +246,10 @@ export default {
     openLive2dMain() {
       this.containerDisplay.main = true
     },
+    openAdminPage() {
+      location.href = this.adminPage;
+      this.containerDisplay.main = true
+    },
     closeLive2dTool() {
       this.containerDisplay.tool = false
     },
@@ -285,10 +295,11 @@ export default {
   display: flex;
   position: relative;
   align-items: flex-end;
+  /* background-color: #6187da; */
 }
 
 .vue-live2d-on-left {
-  flex-direction: row;
+  flex-direction: column-reverse;
 }
 
 .vue-live2d-on-right {
@@ -344,6 +355,7 @@ export default {
   text-align: center;
   cursor: pointer;
   padding: 0 10px;
+  left: 0;
 }
 
 .vue-live2d-tool span {
@@ -354,30 +366,32 @@ export default {
   color: #0684bd;
 }
 
-/* live2d-toggle */
+.Live2dMain {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .vue-live2d-toggle_1 {
-  /* display: block; */
   width: 1.5rem;
   bottom: 1rem;
   padding: .3rem 0;
-  /* writing-mode: vertical-lr; */
   color: #fff;
-  background-color: rgb(255, 179, 93);
   font-size: 1rem;
   cursor: pointer;
-  right: 0;
+  left: 0;
+  background-color: rgb(255, 207, 136);
 }
 
 .vue-live2d-toggle_2 {
   width: 1.5rem;
   bottom: 1rem;
   padding: .3rem 0;
-  /* writing-mode: vertical-lr; */
   color: #fff;
-  background-color: rgb(121, 130, 255);
   font-size: 1rem;
   cursor: pointer;
-  right: 0;
+  left: 0;
+  background-color: #86c3ff;
 }
 
 .vue-live2d-toggle_1:hover,

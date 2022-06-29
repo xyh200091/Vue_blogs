@@ -4,17 +4,16 @@
     <router-view />
     <live2d :style="style"
       :model="['bilibili-live/33', 'closet-default-v2&newyear-upper&cba-super-lower&tomo-high-hat']"
-      :direction="direction" :size="size"></live2d>
+      :direction="direction" :size="size" />
     <component :is="mouse_effects" />
   </div>
 </template>
 
 <script>
-import live2d from './index.vue'
-
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import live2d from './index.vue'//动画小人
 import bubble from '@/components/Effects/Mouse/bubble.vue'//泡泡
 import fireworks from '@/components/Effects/Mouse/fireworks.vue'//小烟花
 import popup_fireworks from '@/components/Effects/Mouse/popup_fireworks.vue'//大烟花
