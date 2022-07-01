@@ -131,5 +131,5 @@ export default {
 </script>
 
 <style scoped>
-@import '../../../static/css/Admin_login.css'
+@import './../../../static/css/Admin_login.css'
 </style>

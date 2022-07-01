@@ -22,7 +22,7 @@ new Vue({
 const app = createApp(App)
 
 // 配置请求的根路径
-// axios.defaults.baseURL = 'https://www.escook.cn'
+axios.defaults.baseURL = '192.168.4.118:8000'
 
 // 将 axios 挂载为 app 的全局自定义属性（ 如 $http ）
 app.config.globalProperties.$http = axios
